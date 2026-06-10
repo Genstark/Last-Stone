@@ -80,7 +80,6 @@ func check_level_and_birds():
 	is_spawning = true
 	removeAllBird()
 	removeAllBoxes()
-
 	await get_tree().process_frame
 
 	if main.level == 1:
@@ -241,61 +240,22 @@ func _on_bulletfinder_body_entered(body: Node2D) -> void:
 			shoot_button.visible = true
 			return  # ← exit early, don't process win/lose
 
-		if main.score == 1 and main.level == 1:
+		# If all birds destroyed and not on final level, advance
+		if allBirds.size() == 0 and main.level < 9:
 			shootMove = false
 			main.level += 1
 			check_level_and_birds()
 			$win.play()
 
-		elif main.score == 2 and main.level == 2:
-			shootMove = false
-			main.level += 1
-			check_level_and_birds()
-			$win.play()
-
-		elif main.score == 4 and main.level == 3:
-			shootMove = false
-			main.level += 1
-			check_level_and_birds()
-			$win.play()
-
-		elif main.score == 6 and main.level == 4:
-			shootMove = false
-			main.level += 1
-			check_level_and_birds()
-			$win.play()
-
-		elif main.score == 8 and main.level == 5:
-			shootMove = false
-			main.level += 1
-			check_level_and_birds()
-			$win.play()
-
-		elif main.score == 10 and main.level == 6:
-			shootMove = false
-			main.level += 1
-			check_level_and_birds()
-			$win.play()
-
-		elif main.score == 12 and main.level == 7:
-			shootMove = false
-			main.level += 1
-			check_level_and_birds()
-			$win.play()
-
-		elif main.score == 14 and main.level == 8:
-			shootMove = false
-			main.level += 1
-			check_level_and_birds()
-			$win.play()
-
-		elif main.score == 16 and main.level == 9:
+		# If all birds destroyed on final level, end game
+		elif allBirds.size() == 0 and main.level == 9:
 			shootMove = false
 			$win.play()
 			get_tree().set_meta("total_shots", main.total_shots)
 			get_tree().set_meta("score", main.score)
 			get_tree().change_scene_to_file("res://scene/main-seen/end_scene.tscn")
 
+		# If not all birds destroyed, it's a lose
 		else:
 			$"lose-sound".play()
 			await $"lose-sound".finished
