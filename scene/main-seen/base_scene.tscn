@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://rtc8rsuwmn6o"]
+
+[ext_resource type="Script" uid="uid://v3fijmf65bfy" path="res://script/base_scene.gd" id="1_smgvn"]
+[ext_resource type="Texture2D" uid="uid://cqm2c3pjfd8u7" path="res://resources/gfx/afternoon-sky.png" id="1_sy46k"]
+[ext_resource type="Texture2D" uid="uid://fx8ii34esgvo" path="res://resources/gfx/piller.png" id="2_sy46k"]
+[ext_resource type="Texture2D" uid="uid://4wy3cux1wjce" path="res://resources/gfx/new-grass-1.png" id="3_sy46k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sy46k"]
+size = Vector2(44, 111)
+
+[node name="base-scene" type="Node2D"]
+script = ExtResource("1_smgvn")
+
+[node name="background" type="ParallaxBackground" parent="."]
+
+[node name="blue-background" type="Sprite2D" parent="background"]
+scale = Vector2(0.748698, 0.7)
+texture = ExtResource("1_sy46k")
+centered = false
+
+[node name="pillers" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="pillers"]
+position = Vector2(-77.4728, -66)
+scale = Vector2(2.12822, 2.04902)
+texture = ExtResource("2_sy46k")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pillers"]
+position = Vector2(56, 591.5)
+shape = SubResource("RectangleShape2D_sy46k")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="pillers"]
+position = Vector2(1088, 591)
+shape = SubResource("RectangleShape2D_sy46k")
+
+[node name="grass" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="grass"]
+z_index = -1
+position = Vector2(576, 410)
+scale = Vector2(1.89216, 1.192)
+texture = ExtResource("3_sy46k")

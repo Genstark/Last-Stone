@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://dl1firuipeius"]
+
+[ext_resource type="Script" uid="uid://cikrs5nuw6fer" path="res://script/box.gd" id="1_hwkg6"]
+[ext_resource type="Texture2D" uid="uid://btcn56a6nnjj8" path="res://resources/gfx/box.png" id="1_jokw5"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jokw5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hwkg6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jokw5"]
+
+[node name="box" type="StaticBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_jokw5")
+script = ExtResource("1_hwkg6")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_jokw5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(3.2, 3.2)
+shape = SubResource("RectangleShape2D_hwkg6")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(3.2, 3.2)
+shape = SubResource("RectangleShape2D_jokw5")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

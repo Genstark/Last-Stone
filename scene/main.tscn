@@ -1,0 +1,142 @@
+[gd_scene load_steps=17 format=3 uid="uid://cksr1u5wpefo1"]
+
+[ext_resource type="Script" uid="uid://dc0gyn5uaoy6u" path="res://script/level.gd" id="1_0ha60"]
+[ext_resource type="PackedScene" uid="uid://rtc8rsuwmn6o" path="res://scene/main-seen/base_scene.tscn" id="1_itxqv"]
+[ext_resource type="Script" uid="uid://vitjgaq6jtj7" path="res://script/main.gd" id="1_p1hux"]
+[ext_resource type="Texture2D" uid="uid://bbd8yurlaf8c0" path="res://resources/gfx/shots_border.png" id="2_v0l8b"]
+[ext_resource type="PackedScene" uid="uid://44vptau5iptv" path="res://scene/main-seen/shooter.tscn" id="3_wp4xf"]
+[ext_resource type="PackedScene" uid="uid://dhmgb6guuxaec" path="res://scene/main-seen/bullets.tscn" id="4_brvut"]
+[ext_resource type="AudioStream" uid="uid://yr4dmjtw6pa0" path="res://resources/sfx/lose.wav" id="8_of57s"]
+[ext_resource type="AudioStream" uid="uid://b1ymc46t0ugi6" path="res://resources/sfx/launch.wav" id="9_b5f6u"]
+[ext_resource type="AudioStream" uid="uid://c0enp82ltgmhq" path="res://resources/sfx/win.wav" id="10_tqoya"]
+[ext_resource type="Texture2D" uid="uid://dyqutr3tohx1u" path="res://resources/left-button.png" id="11_wscrc"]
+[ext_resource type="Texture2D" uid="uid://n0mjthtv14sy" path="res://resources/right-button.png" id="12_mswub"]
+[ext_resource type="Texture2D" uid="uid://c2ccyww7owweg" path="res://resources/shoot-button (1).png" id="13_hybxs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tqoya"]
+size = Vector2(40.5, 455.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hybxs"]
+radius = 12.0415945
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ha60"]
+size = Vector2(1167, 39)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_hybxs"]
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_p1hux")
+
+[node name="levels" type="Node2D" parent="."]
+script = ExtResource("1_0ha60")
+
+[node name="base-scene" parent="levels" instance=ExtResource("1_itxqv")]
+
+[node name="wire-1" type="Sprite2D" parent="levels/base-scene"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(572.5, 192)
+scale = Vector2(7.50735, 0.307691)
+texture = ExtResource("2_v0l8b")
+
+[node name="wire-2" type="Sprite2D" parent="levels/base-scene"]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(562, 312)
+scale = Vector2(7.60294, 0.307691)
+texture = ExtResource("2_v0l8b")
+
+[node name="piller-detect" type="Area2D" parent="levels/base-scene"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levels/base-scene/piller-detect"]
+position = Vector2(65, 232.25)
+shape = SubResource("RectangleShape2D_tqoya")
+
+[node name="piller-detect2" type="Area2D" parent="levels/base-scene"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levels/base-scene/piller-detect2"]
+position = Vector2(1079, 232.25)
+shape = SubResource("RectangleShape2D_tqoya")
+
+[node name="shooter" parent="levels" instance=ExtResource("3_wp4xf")]
+position = Vector2(590, 614)
+
+[node name="bullets" parent="levels" instance=ExtResource("4_brvut")]
+position = Vector2(590, 586)
+
+[node name="bird-finder" type="Area2D" parent="levels/bullets"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levels/bullets/bird-finder"]
+shape = SubResource("CircleShape2D_hybxs")
+
+[node name="bullet-finder" type="Area2D" parent="levels"]
+position = Vector2(0, -24)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levels/bullet-finder"]
+position = Vector2(573.5, -19.5)
+shape = SubResource("RectangleShape2D_0ha60")
+
+[node name="lose-sound" type="AudioStreamPlayer2D" parent="levels"]
+stream = ExtResource("8_of57s")
+volume_db = 12.0
+
+[node name="launch" type="AudioStreamPlayer2D" parent="levels"]
+stream = ExtResource("9_b5f6u")
+
+[node name="win" type="AudioStreamPlayer2D" parent="levels"]
+stream = ExtResource("10_tqoya")
+volume_db = 12.0
+
+[node name="left-Button" type="Button" parent="levels"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 77.0
+offset_top = 480.0
+offset_right = 260.0
+offset_bottom = 600.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7, 0.7)
+theme_type_variation = &"FlatButton"
+icon = ExtResource("11_wscrc")
+
+[node name="right-Button" type="Button" parent="levels"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 939.0
+offset_top = 480.0
+offset_right = 1122.0
+offset_bottom = 600.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7, 0.7)
+theme_type_variation = &"FlatButton"
+theme_override_font_sizes/font_size = 58
+icon = ExtResource("12_mswub")
+
+[node name="shoot-Button" type="Button" parent="levels"]
+z_index = 3
+offset_left = 455.0
+offset_top = 457.0
+offset_right = 1221.0
+offset_bottom = 873.0
+scale = Vector2(0.2, 0.2)
+theme_type_variation = &"FlatButton"
+theme_override_styles/hover_pressed = SubResource("StyleBoxLine_hybxs")
+icon = ExtResource("13_hybxs")
+
+[connection signal="body_entered" from="levels/base-scene/piller-detect" to="levels" method="_on_pillerdetect_body_entered"]
+[connection signal="body_entered" from="levels/base-scene/piller-detect2" to="levels" method="_on_pillerdetect_2_body_entered"]
+[connection signal="body_entered" from="levels/bullets/bird-finder" to="levels" method="_on_birdfinder_body_entered"]
+[connection signal="body_entered" from="levels/bullet-finder" to="levels" method="_on_bulletfinder_body_entered"]
+[connection signal="button_down" from="levels/left-Button" to="levels/shooter" method="_on_left_button_button_down"]
+[connection signal="button_up" from="levels/left-Button" to="levels/shooter" method="_on_left_button_button_up"]
+[connection signal="button_down" from="levels/right-Button" to="levels/shooter" method="_on_right_button_button_down"]
+[connection signal="button_up" from="levels/right-Button" to="levels/shooter" method="_on_right_button_button_up"]
+[connection signal="pressed" from="levels/shoot-Button" to="levels" method="_on_shoot_button_pressed"]

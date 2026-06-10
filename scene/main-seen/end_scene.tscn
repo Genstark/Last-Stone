@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://drenyy6ay71gc"]
+
+[ext_resource type="PackedScene" uid="uid://rtc8rsuwmn6o" path="res://scene/main-seen/base_scene.tscn" id="1_mv8eb"]
+
+[node name="end-scene" type="Node2D"]
+
+[node name="base-scene" parent="." instance=ExtResource("1_mv8eb")]
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_left = 300.0
+offset_top = 165.0
+offset_right = 846.0
+offset_bottom = 306.0
+theme_override_font_sizes/font_size = 45
+text = "Total Shots: 30"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="RestartLabel" type="Label" parent="."]
+offset_left = 374.0
+offset_top = 276.0
+offset_right = 780.0
+offset_bottom = 354.0
+theme_override_font_sizes/font_size = 20
+text = "CLICK TO RESTART"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true

@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://cdj2lqdqfnm68"]
+
+[ext_resource type="Script" uid="uid://b7wv6im34jrwx" path="res://script/before_start.gd" id="1_3rkye"]
+[ext_resource type="PackedScene" uid="uid://rtc8rsuwmn6o" path="res://scene/main-seen/base_scene.tscn" id="1_o8wxr"]
+[ext_resource type="AudioStream" uid="uid://b1ymc46t0ugi6" path="res://resources/sfx/launch.wav" id="3_uxr7o"]
+
+[node name="before-start" type="Node2D"]
+script = ExtResource("1_3rkye")
+
+[node name="base-scene" parent="." instance=ExtResource("1_o8wxr")]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 406.0
+offset_top = 203.0
+offset_right = 755.0
+offset_bottom = 317.0
+theme_override_colors/font_color = Color(0.0784314, 0.219608, 0.32549, 1)
+theme_override_colors/font_outline_color = Color(0.314488, 0.185885, 0.498683, 1)
+theme_override_font_sizes/font_size = 83
+text = "one shot"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 404.0
+offset_top = 382.0
+offset_right = 752.0
+offset_bottom = 429.0
+theme_override_colors/font_color = Color(0.0784314, 0.219608, 0.32549, 1)
+theme_override_colors/font_outline_color = Color(0.313726, 0.184314, 0.498039, 1)
+theme_override_font_sizes/font_size = 30
+text = "Click to Start"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="launch" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_uxr7o")
+volume_db = 12.0

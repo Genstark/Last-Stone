@@ -1,0 +1,25 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="one-shot"
+run/main_scene="uid://cyohe5mb3o17g"
+config/features=PackedStringArray("4.5", "Forward Plus")
+boot_splash/bg_color=Color(0.019458821, 3.0202045e-06, 0.15298298, 1)
+config/icon="uid://b6ltkq3syulpd"
+
+[display]
+
+window/stretch/mode="viewport"
+
+[rendering]
+
+textures/vram_compression/import_etc2_astc=true
