@@ -3,6 +3,7 @@ extends Node2D
 var total_shots = 0
 var level:int = 1
 var score:int = 0
+var game_ended = false
 
 # const END_SCENE = preload("res://scene/main-seen/end_scene.tscn")
 # var end 
@@ -27,12 +28,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if score == 16:
-		# $"level-1".visible = false
-		# Store data in scene tree meta
-		get_tree().set_meta("total_shots", total_shots)
-		get_tree().set_meta("score", score)
-		get_tree().change_scene_to_file("res://scene/main-seen/end_scene.tscn")
+	pass
+
+func go_to_end_scene():
+	get_tree().set_meta("total_shots", total_shots)
+	get_tree().change_scene_to_file("res://scene/main-seen/end_scene.tscn")
 
 func _input(_event):
 	pass
