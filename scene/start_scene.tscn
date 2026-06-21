@@ -1,45 +1,31 @@
 [gd_scene load_steps=8 format=3 uid="uid://cyohe5mb3o17g"]
 
 [ext_resource type="Texture2D" uid="uid://d3qnkcbmbvjod" path="res://resources/gfx/background.png" id="1_24qbo"]
-[ext_resource type="Texture2D" uid="uid://l4pksuc40lv0" path="res://resources/ChatGPT_Image_Jan_17_2026_07_27_30_PM.png" id="2_1kd0b"]
-[ext_resource type="Texture2D" uid="uid://cbhwqx64a8djg" path="res://ChatGPTImageJan17202607_11_12PM.png" id="2_i8kgv"]
+[ext_resource type="Script" uid="uid://qbbyc2jqbl3t" path="res://script/start_scene.gd" id="1_i8kgv"]
+[ext_resource type="Texture2D" uid="uid://b5koyrj6m6kkd" path="res://resources/start-background-afternoon.png" id="1_yit26"]
+[ext_resource type="Texture2D" uid="uid://shormuxx5xhi" path="res://resources/Play-Button.png" id="2_yit26"]
+[ext_resource type="Texture2D" uid="uid://dngkw12ymy0q6" path="res://resources/QUit_BUtton.png" id="3_i8kgv"]
 [ext_resource type="AudioStream" uid="uid://b1ymc46t0ugi6" path="res://resources/sfx/launch.wav" id="3_ktkcv"]
-[ext_resource type="Texture2D" uid="uid://cf8p7258o3l3t" path="res://QUit_BUtton.png" id="6_1kd0b"]
-
-[sub_resource type="GDScript" id="GDScript_yit26"]
-script/source = "extends Node2D
-
-var screen_size
-
-func _ready() -> void:
-	$start.play()
-	screen_size = get_viewport().get_visible_rect().size
-	# Center Label
-
-
-
-func _on_button_button_up() -> void:
-	get_tree().change_scene_to_file(\"res://scene/main.tscn\")
-
-
-func _on_quit_button_button_up() -> void:
-	get_tree().quit()
-"
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qnhph"]
 
 [node name="start scene" type="Node2D"]
-script = SubResource("GDScript_yit26")
+script = ExtResource("1_i8kgv")
 
-[node name="Sprite2D3" type="Sprite2D" parent="."]
-position = Vector2(577, 397.00003)
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(577, 393)
 scale = Vector2(0.775, 0.775)
-texture = ExtResource("2_1kd0b")
+texture = ExtResource("1_yit26")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(576, 368)
+[node name="play" type="Sprite2D" parent="."]
+position = Vector2(576, 365)
 scale = Vector2(0.225, 0.225)
-texture = ExtResource("2_i8kgv")
+texture = ExtResource("2_yit26")
+
+[node name="quit" type="Sprite2D" parent="."]
+position = Vector2(576, 455.00003)
+scale = Vector2(0.225, 0.225)
+texture = ExtResource("3_i8kgv")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -107,11 +93,6 @@ theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_qnhph"
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_qnhph")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_qnhph")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_qnhph")
-
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(576, 455.00003)
-scale = Vector2(0.225, 0.225)
-texture = ExtResource("6_1kd0b")
 
 [connection signal="button_up" from="StartButton" to="." method="_on_button_button_up"]
 [connection signal="button_up" from="QuitButton" to="." method="_on_quit_button_button_up"]

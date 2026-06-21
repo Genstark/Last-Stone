@@ -30,6 +30,10 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	pass
 
+func go_to_end_scene():
+	get_tree().set_meta("total_shots", total_shots)
+	get_tree().change_scene_to_file("res://scene/main-seen/end_scene.tscn")
+
 func _input(_event):
 	pass
 	# if score == 14:

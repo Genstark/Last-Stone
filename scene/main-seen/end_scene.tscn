@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://drenyy6ay71gc"]
+[gd_scene load_steps=3 format=3 uid="uid://drenyy6ay71gc"]
 
 [ext_resource type="PackedScene" uid="uid://rtc8rsuwmn6o" path="res://scene/main-seen/base_scene.tscn" id="1_mv8eb"]
+[ext_resource type="Script" uid="uid://bgkh08sdfeloq" path="res://script/end_scene.gd" id="1_tw4p0"]
 
 [node name="end-scene" type="Node2D"]
+script = ExtResource("1_tw4p0")
 
 [node name="base-scene" parent="." instance=ExtResource("1_mv8eb")]
 
@@ -17,13 +19,12 @@ horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
-[node name="RestartLabel" type="Label" parent="."]
+[node name="RestartLabel" type="Button" parent="."]
 offset_left = 374.0
 offset_top = 276.0
 offset_right = 780.0
 offset_bottom = 354.0
 theme_override_font_sizes/font_size = 20
 text = "CLICK TO RESTART"
-horizontal_alignment = 1
-vertical_alignment = 1
-uppercase = true
+
+[connection signal="pressed" from="RestartLabel" to="." method="_on_restart_label_pressed"]
