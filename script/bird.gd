@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-@export var birdnumber = "this is working now its your turn"
 @export var move = false
 @export var speed = 4
 var direction := 1
@@ -15,8 +14,7 @@ func _physics_process(_delta: float) -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
+	# Bullet collision is handled by the level's bird-finder area.
+	# Do not play bird kill audio or free the bird here.
 	if body.name == "bullets":
-		$AudioStreamPlayer2D.play()
-		await $AudioStreamPlayer2D.finished
-		# visible = false
-		queue_free()
+		return

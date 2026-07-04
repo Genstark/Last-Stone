@@ -316,6 +316,7 @@ func _on_bulletfinder_body_entered(body: Node2D) -> void:
 		await $"lose-sound".finished
 		shootMove = false
 		call_deferred("check_level_and_birds")
+	shooter.position = Vector2(591, 614)
 	_reset_bullet()
 
 func _on_bulletfinderdown_body_entered(_body: Node2D) -> void:
@@ -323,19 +324,36 @@ func _on_bulletfinderdown_body_entered(_body: Node2D) -> void:
 	await $"lose-sound".finished
 	shootMove = false
 	call_deferred("check_level_and_birds")
+	shooter.position = Vector2(590, 614)
 	_reset_bullet()
+
+func _find_hit_audio(node: Node) -> AudioStreamPlayer2D:
+	if node is AudioStreamPlayer2D:
+		return node
+	var audio = node.get_node_or_null("AudioStreamPlayer2D")
+	if audio:
+		return audio
+	if node.get_parent():
+		return _find_hit_audio(node.get_parent())
+	return null
 
 func _on_birdfinder_body_entered(body: Node2D) -> void:
 	if body.name == "shooter":
 		_reset_bullet()
 		return
 	
-	if body.name == "box":
+	if body.has_meta("bird_hit"):
 		return
+	body.set_meta("bird_hit", true)
+
 	var index := allBirds.find(body)
 	if index != -1:
+		var hit_audio = _find_hit_audio(body)
+		if hit_audio:
+			hit_audio.play()
+			await hit_audio.finished
 		allBirds.remove_at(index)
-		body.call_deferred("queue_free")
+		body.queue_free()
 	
 	if allBirds.size() == 0:
 		var points: int = 1 if main.level <= 2 else 2

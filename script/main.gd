@@ -1,7 +1,7 @@
 extends Node2D
 
 var total_shots = 0
-var level:int = 10
+var level:int = 1
 var score:int = 0
 var game_ended = false
 
