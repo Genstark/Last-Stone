@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dl1firuipeius"]
+[gd_scene load_steps=7 format=3 uid="uid://dl1firuipeius"]
 
 [ext_resource type="Script" uid="uid://cikrs5nuw6fer" path="res://script/box.gd" id="1_hwkg6"]
 [ext_resource type="Texture2D" uid="uid://btcn56a6nnjj8" path="res://resources/gfx/box.png" id="1_jokw5"]
+[ext_resource type="AudioStream" uid="uid://bp7lh6v6u7twv" path="res://resources/sfx/bonk.wav" id="3_v5x26"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jokw5"]
 
@@ -26,5 +27,8 @@ shape = SubResource("RectangleShape2D_hwkg6")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 scale = Vector2(3.2, 3.2)
 shape = SubResource("RectangleShape2D_jokw5")
+
+[node name="collide-sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_v5x26")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

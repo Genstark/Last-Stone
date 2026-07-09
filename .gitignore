@@ -12,3 +12,4 @@ dist/
 .DS_Store
 .env
 user_data/
+/android-export/

@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="one-shot"
+config/name="LastStone"
 run/main_scene="uid://cyohe5mb3o17g"
 config/features=PackedStringArray("4.5", "Forward Plus")
 boot_splash/bg_color=Color(0.019458821, 3.0202045e-06, 0.15298298, 1)

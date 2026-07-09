@@ -78,6 +78,14 @@ metadata/_edit_group_ = true
 position = Vector2(573.5, -19.5)
 shape = SubResource("RectangleShape2D_0ha60")
 
+[node name="bullet-finder-down" type="Area2D" parent="levels"]
+position = Vector2(0, 759)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levels/bullet-finder-down"]
+position = Vector2(573.5, -19.5)
+shape = SubResource("RectangleShape2D_0ha60")
+
 [node name="lose-sound" type="AudioStreamPlayer2D" parent="levels"]
 stream = ExtResource("8_of57s")
 volume_db = 12.0
@@ -135,6 +143,7 @@ icon = ExtResource("13_hybxs")
 [connection signal="body_entered" from="levels/base-scene/piller-detect2" to="levels" method="_on_pillerdetect_2_body_entered"]
 [connection signal="body_entered" from="levels/bullets/bird-finder" to="levels" method="_on_birdfinder_body_entered"]
 [connection signal="body_entered" from="levels/bullet-finder" to="levels" method="_on_bulletfinder_body_entered"]
+[connection signal="body_entered" from="levels/bullet-finder-down" to="levels" method="_on_bulletfinderdown_body_entered"]
 [connection signal="button_down" from="levels/left-Button" to="levels/shooter" method="_on_left_button_button_down"]
 [connection signal="button_up" from="levels/left-Button" to="levels/shooter" method="_on_left_button_button_up"]
 [connection signal="button_down" from="levels/right-Button" to="levels/shooter" method="_on_right_button_button_down"]
