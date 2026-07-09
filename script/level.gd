@@ -261,6 +261,21 @@ func _deferred_reload_level() -> void:
 		add_child(box_level_10_2)
 		allBoxes.append(box_level_10_2)
 		box_level_10_2.bullet_hit.connect(_on_box_bullet_hit)
+		
+		var b1 = bird.instantiate()
+		b1.position = Vector2(255, 280)
+		add_child(b1)
+		allBirds.append(b1)
+		
+		var b2 = bird.instantiate()
+		b2.position = Vector2(876, 280)
+		add_child(b2)
+		allBirds.append(b2)
+		
+		var b3 = bird.instantiate()
+		b3.position = Vector2(521, 160)
+		add_child(b3)
+		allBirds.append(b3)
 	
 	is_spawning = false
 
@@ -316,6 +331,7 @@ func _on_bulletfinder_body_entered(body: Node2D) -> void:
 		await $"lose-sound".finished
 		shootMove = false
 		call_deferred("check_level_and_birds")
+	
 	shooter.position = Vector2(591, 614)
 	_reset_bullet()
 
