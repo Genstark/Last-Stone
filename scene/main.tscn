@@ -35,7 +35,7 @@ script = ExtResource("1_0ha60")
 [node name="wire-1" type="Sprite2D" parent="levels/base-scene"]
 modulate = Color(0, 0, 0, 1)
 z_index = -1
-position = Vector2(572.5, 192)
+position = Vector2(572.5, 170)
 scale = Vector2(7.50735, 0.307691)
 texture = ExtResource("2_v0l8b")
 
@@ -43,7 +43,15 @@ texture = ExtResource("2_v0l8b")
 modulate = Color(0, 0, 0, 1)
 self_modulate = Color(0, 0, 0, 1)
 z_index = -1
-position = Vector2(562, 312)
+position = Vector2(562, 290)
+scale = Vector2(7.60294, 0.307691)
+texture = ExtResource("2_v0l8b")
+
+[node name="wire-3" type="Sprite2D" parent="levels/base-scene"]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(562, 410)
 scale = Vector2(7.60294, 0.307691)
 texture = ExtResource("2_v0l8b")
 

@@ -1,9 +1,9 @@
 extends Node2D
 
-var total_shots = 0
+var total_shots:int = 0
 var level:int = 1
 var score:int = 0
-var game_ended = false
+var game_ended:bool = false
 
 # const END_SCENE = preload("res://scene/main-seen/end_scene.tscn")
 # var end 
