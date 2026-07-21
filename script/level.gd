@@ -37,10 +37,10 @@ func _ready() -> void:
 func _clear_button_style(btn: Button) -> void:
 	btn.focus_mode = Control.FOCUS_NONE
 	btn.mouse_filter = Control.MOUSE_FILTER_PASS
-	btn.add_theme_stylebox_override("normal",  StyleBoxEmpty.new())
-	btn.add_theme_stylebox_override("hover",   StyleBoxEmpty.new())
+	btn.add_theme_stylebox_override("normal", StyleBoxEmpty.new())
+	btn.add_theme_stylebox_override("hover", StyleBoxEmpty.new())
 	btn.add_theme_stylebox_override("pressed", StyleBoxEmpty.new())
-	btn.add_theme_stylebox_override("focus",   StyleBoxEmpty.new())
+	btn.add_theme_stylebox_override("focus", StyleBoxEmpty.new())
 
 func _process(_delta: float) -> void:
 	if bullet and not shootMove and not bulletReverse:
@@ -305,7 +305,6 @@ func _deferred_reload_level() -> void:
 		add_child(box_level_10_2)
 		allBoxes.append(box_level_10_2)
 		box_level_10_2.bullet_hit.connect(_on_box_bullet_hit)
-		
 
 		var b1 = bird.instantiate()
 		b1.position = Vector2(250, 258)
@@ -483,6 +482,76 @@ func _deferred_reload_level() -> void:
 			spr3.texture = load("res://resources/gfx/black-bird-right.png")
 		add_child(b3)
 		allBirds.append(b3)
+	
+	elif main.level == 17:
+		var b1 = bird.instantiate()
+		b1.position = Vector2(400, 138)
+		b1.move = true
+		b1.flip(1)
+		b1.speed = 5.2
+		var spr1 = b1.get_node_or_null("Sprite2D")
+		if spr1:
+			spr1.texture = load("res://resources/gfx/black-bird-right.png")
+		add_child(b1)
+		allBirds.append(b1)
+
+		var box_1 = box.instantiate()
+		box_1.position = Vector2(580, 290)
+		add_child(box_1)
+		allBoxes.append(box_1)
+		box_1.bullet_hit.connect(_on_box_bullet_hit)
+	
+		var b2 = bird.instantiate()
+		b2.position = Vector2(750, 258)
+		add_child(b2)
+		allBirds.append(b2)
+
+		var b3 = bird.instantiate()
+		b3.position = Vector2(521, 378)
+		b3.move = true
+		b3.flip(-1)
+		b3.speed = 5.2
+		var spr2 = b3.get_node_or_null("Sprite2D")
+		if spr2:
+			spr2.texture = load("res://resources/gfx/black-bird-right.png")
+		add_child(b3)
+		allBirds.append(b3)
+	
+	elif main.level == 18:
+		$"base-scene/wire-2".visible = true
+		$"base-scene/wire-3".visible = true
+		var b1 = bird.instantiate()
+		b1.position = Vector2(400, 138)
+		b1.move = true
+		b1.flip(1)
+		b1.speed = 5.2
+		var spr1 = b1.get_node_or_null("Sprite2D")
+		if spr1:
+			spr1.texture = load("res://resources/gfx/black-bird-right.png")
+		add_child(b1)
+		allBirds.append(b1)
+
+		var box_1 = box.instantiate()
+		box_1.position = Vector2(580, 290)
+		add_child(box_1)
+		allBoxes.append(box_1)
+		box_1.bullet_hit.connect(_on_box_bullet_hit)
+	
+		var b2 = bird.instantiate()
+		b2.position = Vector2(350, 258)
+		add_child(b2)
+		allBirds.append(b2)
+
+		var b3 = bird.instantiate()
+		b3.position = Vector2(521, 378)
+		b3.move = true
+		b3.flip(-1)
+		b3.speed = 5.2
+		var spr2 = b3.get_node_or_null("Sprite2D")
+		if spr2:
+			spr2.texture = load("res://resources/gfx/black-bird-right.png")
+		add_child(b3)
+		allBirds.append(b3)
 
 	else:
 		print("Level not defined: ", main.level)
@@ -524,13 +593,13 @@ func _on_bulletfinder_body_entered(body: Node2D) -> void:
 		_reset_bullet()
 		return
 	
-	if allBirds.size() == 0 and main.level < 16:
+	if allBirds.size() == 0 and main.level < 18:
 		shootMove = false
 		$win.play()
 		main.level += 1
 		call_deferred("check_level_and_birds")
 	
-	elif allBirds.size() == 0 and main.level == 16:
+	elif allBirds.size() == 0 and main.level == 18:
 		shootMove = false
 		$win.play()
 		call_deferred("_go_to_end_scene")
