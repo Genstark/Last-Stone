@@ -306,186 +306,20 @@ func _deferred_reload_level() -> void:
 		allBoxes.append(box_level_10_2)
 		box_level_10_2.bullet_hit.connect(_on_box_bullet_hit)
 		
-
 		var b1 = bird.instantiate()
-		b1.position = Vector2(250, 258)
+		b1.position = Vector2(255, 280)
 		add_child(b1)
 		allBirds.append(b1)
 		
 		var b2 = bird.instantiate()
-		b2.position = Vector2(876, 258)
+		b2.position = Vector2(876, 280)
 		add_child(b2)
 		allBirds.append(b2)
 		
 		var b3 = bird.instantiate()
-		b3.position = Vector2(521, 138)
+		b3.position = Vector2(521, 160)
 		add_child(b3)
 		allBirds.append(b3)
-
-		var b4 = bird.instantiate()
-		b4.position = Vector2(521, 258)
-		add_child(b4)
-		allBirds.append(b4)
-	
-	elif main.level == 13:
-		$"base-scene/wire-3".visible = true
-		var b1 = bird.instantiate()
-		b1.position = Vector2(521, 138)
-		add_child(b1)
-		allBirds.append(b1)
-
-		var box_1 = box.instantiate()
-		box_1.position = Vector2(225, 290)
-		add_child(box_1)
-		allBoxes.append(box_1)
-		box_1.bullet_hit.connect(_on_box_bullet_hit)
-
-		var b2 = bird.instantiate()
-		b2.position = Vector2(521, 258)
-		add_child(b2)
-		allBirds.append(b2)
-
-		var box_2 = box.instantiate()
-		box_2.position = Vector2(876, 290)
-		add_child(box_2)
-		allBoxes.append(box_2)
-		box_2.bullet_hit.connect(_on_box_bullet_hit)
-
-		var b3 = bird.instantiate()
-		b3.position = Vector2(255, 378)
-		add_child(b3)
-		allBirds.append(b3)
-
-		var b4 = bird.instantiate()
-		b4.position = Vector2(521, 378)
-		add_child(b4)
-		allBirds.append(b4)
-
-		var b5 = bird.instantiate()
-		b5.position = Vector2(876, 378)
-		add_child(b5)
-		allBirds.append(b5)
-
-	elif main.level == 14:
-		var b1 = bird.instantiate()
-		b1.position = Vector2(521, 138)
-		b1.move = true
-		b1.speed = 5
-		b1.flip(1)
-		var spr = b1.get_node_or_null("Sprite2D")
-		if spr:
-			spr.texture = load("res://resources/gfx/black-bird-right.png")
-		add_child(b1)
-		allBirds.append(b1)
-
-		var box_1 = box.instantiate()
-		box_1.position = Vector2(225, 290)
-		add_child(box_1)
-		allBoxes.append(box_1)
-		box_1.bullet_hit.connect(_on_box_bullet_hit)
-
-		var b2 = bird.instantiate()
-		b2.position = Vector2(521, 258)
-		add_child(b2)
-		allBirds.append(b2)
-
-		var box_2 = box.instantiate()
-		box_2.position = Vector2(876, 290)
-		add_child(box_2)
-		allBoxes.append(box_2)
-		box_2.bullet_hit.connect(_on_box_bullet_hit)
-
-		var b3 = bird.instantiate()
-		b3.position = Vector2(255, 378)
-		add_child(b3)
-		allBirds.append(b3)
-
-		var b4 = bird.instantiate()
-		b4.position = Vector2(521, 378)
-		add_child(b4)
-		allBirds.append(b4)
-
-		var b5 = bird.instantiate()
-		b5.position = Vector2(876, 378)
-		add_child(b5)
-		allBirds.append(b5)
-	
-	elif main.level == 15:
-		var b1 = bird.instantiate()
-		b1.position = Vector2(521, 138)
-		b1.move = true
-		b1.speed = 5
-		b1.flip(1)
-		var spr = b1.get_node_or_null("Sprite2D")
-		if spr:
-			spr.texture = load("res://resources/gfx/black-bird-right.png")
-		add_child(b1)
-		allBirds.append(b1)
-
-		var box_1 = box.instantiate()
-		box_1.position = Vector2(225, 290)
-		add_child(box_1)
-		allBoxes.append(box_1)
-		box_1.bullet_hit.connect(_on_box_bullet_hit)
-
-		var b2 = bird.instantiate()
-		b2.position = Vector2(521, 258)
-		add_child(b2)
-		allBirds.append(b2)
-
-		var box_2 = box.instantiate()
-		box_2.position = Vector2(876, 290)
-		add_child(box_2)
-		allBoxes.append(box_2)
-		box_2.bullet_hit.connect(_on_box_bullet_hit)
-
-		var b3 = bird.instantiate()
-		b3.position = Vector2(521, 378)
-		b3.move = true
-		b3.speed = 5
-		b3.flip(-1)
-		var spr3 = b3.get_node_or_null("Sprite2D")
-		if spr3:
-			spr3.texture = load("res://resources/gfx/black-bird-right.png")
-		add_child(b3)
-		allBirds.append(b3)
-	
-	elif main.level == 16:
-		var b1 = bird.instantiate()
-		b1.position = Vector2(480, 138)
-		add_child(b1)
-		allBirds.append(b1)
-
-		var box_1 = box.instantiate()
-		box_1.position = Vector2(225, 168)
-		add_child(box_1)
-		allBoxes.append(box_1)
-		box_1.bullet_hit.connect(_on_box_bullet_hit)
-
-		var b2 = bird.instantiate()
-		b2.position = Vector2(521, 258)
-		b2.move = true
-		b2.speed = 6
-		b2.flip(-1)
-		var spr2 = b2.get_node_or_null("Sprite2D")
-		if spr2:
-			spr2.texture = load("res://resources/gfx/black-bird-right.png")
-		add_child(b2)
-		allBirds.append(b2)
-
-		var b3 = bird.instantiate()
-		b3.position = Vector2(521, 378)
-		b3.move = true
-		b3.speed = 5
-		b3.flip(-1)
-		var spr3 = b3.get_node_or_null("Sprite2D")
-		if spr3:
-			spr3.texture = load("res://resources/gfx/black-bird-right.png")
-		add_child(b3)
-		allBirds.append(b3)
-
-	else:
-		print("Level not defined: ", main.level)
 	
 	is_spawning = false
 
