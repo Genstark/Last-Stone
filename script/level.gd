@@ -31,6 +31,8 @@ func _ready() -> void:
 	_clear_button_style(left_button)
 	_clear_button_style(right_button)
 	check_level_and_birds()
+	$"base-scene/wire-2".visible = false
+	$"base-scene/wire-3".visible = false
 
 func _clear_button_style(btn: Button) -> void:
 	btn.focus_mode = Control.FOCUS_NONE
@@ -101,15 +103,14 @@ func _deferred_reload_level() -> void:
 	await get_tree().process_frame
 
 	if main.level == 1:
-		$"base-scene/wire-2".visible = false
 		var b = bird.instantiate()
-		b.position = Vector2(521, 160)
+		b.position = Vector2(521, 138)
 		add_child(b)
 		allBirds.append(b)
 
 	elif main.level == 2:
 		var b = bird.instantiate()
-		b.position = Vector2(521, 160)
+		b.position = Vector2(521, 138)
 		b.flip(1)
 		b.move = true
 		b.speed = 2.0
@@ -123,18 +124,18 @@ func _deferred_reload_level() -> void:
 	elif main.level == 3:
 		$"base-scene/wire-2".visible = true
 		var b1 = bird.instantiate()
-		b1.position = Vector2(521, 160)
+		b1.position = Vector2(521, 138)
 		add_child(b1)
 		allBirds.append(b1)
 		
 		var b2 = bird.instantiate()
-		b2.position = Vector2(521, 280)
+		b2.position = Vector2(521, 258)
 		add_child(b2)
 		allBirds.append(b2)
 
 	elif main.level == 4:
 		var b1 = bird.instantiate()
-		b1.position = Vector2(521, 160)
+		b1.position = Vector2(521, 138)
 		b1.flip(1)
 		b1.move = true
 		b1.speed = 2.0
@@ -145,13 +146,13 @@ func _deferred_reload_level() -> void:
 		allBirds.append(b1)
 		
 		var b2 = bird.instantiate()
-		b2.position = Vector2(521, 280)
+		b2.position = Vector2(521, 258)
 		add_child(b2)
 		allBirds.append(b2)
 
 	elif main.level == 5:
 		var b1 = bird.instantiate()
-		b1.position = Vector2(521, 160)
+		b1.position = Vector2(521, 138)
 		b1.flip(1)
 		b1.move = true
 		b1.speed = 2.0
@@ -162,7 +163,7 @@ func _deferred_reload_level() -> void:
 		allBirds.append(b1)
 		
 		var b2 = bird.instantiate()
-		b2.position = Vector2(521, 280)
+		b2.position = Vector2(521, 258)
 		b2.move = true
 		b2.speed = 2.0
 		b2.flip(-1)
@@ -174,7 +175,7 @@ func _deferred_reload_level() -> void:
 	
 	elif main.level == 6:
 		var b1 = bird.instantiate()
-		b1.position = Vector2(521, 160)
+		b1.position = Vector2(521, 138)
 		b1.flip(1)
 		b1.move = true
 		b1.speed = 2.5
@@ -185,7 +186,7 @@ func _deferred_reload_level() -> void:
 		allBirds.append(b1)
 		
 		var b2 = bird.instantiate()
-		b2.position = Vector2(521, 280)
+		b2.position = Vector2(521, 258)
 		b2.move = true
 		b2.speed = 2.5
 		b2.flip(-1)
@@ -197,12 +198,12 @@ func _deferred_reload_level() -> void:
 	
 	elif main.level == 7:
 		var b1 = bird.instantiate()
-		b1.position = Vector2(650, 160)
+		b1.position = Vector2(650, 138)
 		add_child(b1)
 		allBirds.append(b1)
 		
 		var b2 = bird.instantiate()
-		b2.position = Vector2(521, 280)
+		b2.position = Vector2(521, 258)
 		b2.move = true
 		b2.speed = 2.0
 		b2.flip(-1)
@@ -214,12 +215,12 @@ func _deferred_reload_level() -> void:
 	
 	elif main.level == 8:
 		var b1 = bird.instantiate()
-		b1.position = Vector2(650, 160)
+		b1.position = Vector2(650, 138)
 		add_child(b1)
 		allBirds.append(b1)
 		
 		var b2 = bird.instantiate()
-		b2.position = Vector2(521, 280)
+		b2.position = Vector2(521, 258)
 		b2.move = true
 		b2.speed = 4.5
 		b2.flip(-1)
@@ -231,51 +232,260 @@ func _deferred_reload_level() -> void:
 	
 	elif main.level == 9:
 		var box_level_9 = box.instantiate()
-		box_level_9.position = Vector2(876, 190)
-		box_level_9.name = "box"
+		box_level_9.position = Vector2(876, 168)
 		add_child(box_level_9)
 		allBoxes.append(box_level_9)
 		box_level_9.bullet_hit.connect(_on_box_bullet_hit)
 
 		var b1 = bird.instantiate()
-		b1.position = Vector2(521, 160)
+		b1.position = Vector2(521, 138)
 		add_child(b1)
 		allBirds.append(b1)
 	
 		var b2 = bird.instantiate()
-		b2.position = Vector2(876, 280)
+		b2.position = Vector2(876, 258)
 		add_child(b2)
 		allBirds.append(b2)
 	
 	elif main.level == 10:
 		var box_level_10_1 = box.instantiate()
-		box_level_10_1.position = Vector2(225, 190)
-		box_level_10_1.name = "box-1"
+		box_level_10_1.position = Vector2(225, 168)
+		add_child(box_level_10_1)
+		allBoxes.append(box_level_10_1)
+		box_level_10_1.bullet_hit.connect(_on_box_bullet_hit)
+		
+		var b1 = bird.instantiate()
+		b1.position = Vector2(250, 258)
+		add_child(b1)
+		allBirds.append(b1)
+		
+		var b2 = bird.instantiate()
+		b2.position = Vector2(521, 138)
+		add_child(b2)
+		allBirds.append(b2)
+	
+	elif main.level == 11:
+		var box_level_10_1 = box.instantiate()
+		box_level_10_1.position = Vector2(225, 168)
 		add_child(box_level_10_1)
 		allBoxes.append(box_level_10_1)
 		box_level_10_1.bullet_hit.connect(_on_box_bullet_hit)
 		
 		var box_level_10_2 = box.instantiate()
-		box_level_10_2.position = Vector2(876, 190)
-		box_level_10_2.name = "box-2"
+		box_level_10_2.position = Vector2(876, 168)
 		add_child(box_level_10_2)
 		allBoxes.append(box_level_10_2)
 		box_level_10_2.bullet_hit.connect(_on_box_bullet_hit)
 		
+
 		var b1 = bird.instantiate()
-		b1.position = Vector2(255, 280)
+		b1.position = Vector2(250, 258)
 		add_child(b1)
 		allBirds.append(b1)
 		
 		var b2 = bird.instantiate()
-		b2.position = Vector2(876, 280)
+		b2.position = Vector2(876, 258)
 		add_child(b2)
 		allBirds.append(b2)
 		
 		var b3 = bird.instantiate()
-		b3.position = Vector2(521, 160)
+		b3.position = Vector2(521, 138)
 		add_child(b3)
 		allBirds.append(b3)
+	
+	elif main.level == 12:
+		var box_level_10_1 = box.instantiate()
+		box_level_10_1.position = Vector2(225, 168)
+		add_child(box_level_10_1)
+		allBoxes.append(box_level_10_1)
+		box_level_10_1.bullet_hit.connect(_on_box_bullet_hit)
+		
+		var box_level_10_2 = box.instantiate()
+		box_level_10_2.position = Vector2(876, 168)
+		add_child(box_level_10_2)
+		allBoxes.append(box_level_10_2)
+		box_level_10_2.bullet_hit.connect(_on_box_bullet_hit)
+		
+
+		var b1 = bird.instantiate()
+		b1.position = Vector2(250, 258)
+		add_child(b1)
+		allBirds.append(b1)
+		
+		var b2 = bird.instantiate()
+		b2.position = Vector2(876, 258)
+		add_child(b2)
+		allBirds.append(b2)
+		
+		var b3 = bird.instantiate()
+		b3.position = Vector2(521, 138)
+		add_child(b3)
+		allBirds.append(b3)
+
+		var b4 = bird.instantiate()
+		b4.position = Vector2(521, 258)
+		add_child(b4)
+		allBirds.append(b4)
+	
+	elif main.level == 13:
+		$"base-scene/wire-3".visible = true
+		var b1 = bird.instantiate()
+		b1.position = Vector2(521, 138)
+		add_child(b1)
+		allBirds.append(b1)
+
+		var box_1 = box.instantiate()
+		box_1.position = Vector2(225, 290)
+		add_child(box_1)
+		allBoxes.append(box_1)
+		box_1.bullet_hit.connect(_on_box_bullet_hit)
+
+		var b2 = bird.instantiate()
+		b2.position = Vector2(521, 258)
+		add_child(b2)
+		allBirds.append(b2)
+
+		var box_2 = box.instantiate()
+		box_2.position = Vector2(876, 290)
+		add_child(box_2)
+		allBoxes.append(box_2)
+		box_2.bullet_hit.connect(_on_box_bullet_hit)
+
+		var b3 = bird.instantiate()
+		b3.position = Vector2(255, 378)
+		add_child(b3)
+		allBirds.append(b3)
+
+		var b4 = bird.instantiate()
+		b4.position = Vector2(521, 378)
+		add_child(b4)
+		allBirds.append(b4)
+
+		var b5 = bird.instantiate()
+		b5.position = Vector2(876, 378)
+		add_child(b5)
+		allBirds.append(b5)
+
+	elif main.level == 14:
+		var b1 = bird.instantiate()
+		b1.position = Vector2(521, 138)
+		b1.move = true
+		b1.speed = 5
+		b1.flip(1)
+		var spr = b1.get_node_or_null("Sprite2D")
+		if spr:
+			spr.texture = load("res://resources/gfx/black-bird-right.png")
+		add_child(b1)
+		allBirds.append(b1)
+
+		var box_1 = box.instantiate()
+		box_1.position = Vector2(225, 290)
+		add_child(box_1)
+		allBoxes.append(box_1)
+		box_1.bullet_hit.connect(_on_box_bullet_hit)
+
+		var b2 = bird.instantiate()
+		b2.position = Vector2(521, 258)
+		add_child(b2)
+		allBirds.append(b2)
+
+		var box_2 = box.instantiate()
+		box_2.position = Vector2(876, 290)
+		add_child(box_2)
+		allBoxes.append(box_2)
+		box_2.bullet_hit.connect(_on_box_bullet_hit)
+
+		var b3 = bird.instantiate()
+		b3.position = Vector2(255, 378)
+		add_child(b3)
+		allBirds.append(b3)
+
+		var b4 = bird.instantiate()
+		b4.position = Vector2(521, 378)
+		add_child(b4)
+		allBirds.append(b4)
+
+		var b5 = bird.instantiate()
+		b5.position = Vector2(876, 378)
+		add_child(b5)
+		allBirds.append(b5)
+	
+	elif main.level == 15:
+		var b1 = bird.instantiate()
+		b1.position = Vector2(521, 138)
+		b1.move = true
+		b1.speed = 5
+		b1.flip(1)
+		var spr = b1.get_node_or_null("Sprite2D")
+		if spr:
+			spr.texture = load("res://resources/gfx/black-bird-right.png")
+		add_child(b1)
+		allBirds.append(b1)
+
+		var box_1 = box.instantiate()
+		box_1.position = Vector2(225, 290)
+		add_child(box_1)
+		allBoxes.append(box_1)
+		box_1.bullet_hit.connect(_on_box_bullet_hit)
+
+		var b2 = bird.instantiate()
+		b2.position = Vector2(521, 258)
+		add_child(b2)
+		allBirds.append(b2)
+
+		var box_2 = box.instantiate()
+		box_2.position = Vector2(876, 290)
+		add_child(box_2)
+		allBoxes.append(box_2)
+		box_2.bullet_hit.connect(_on_box_bullet_hit)
+
+		var b3 = bird.instantiate()
+		b3.position = Vector2(521, 378)
+		b3.move = true
+		b3.speed = 5
+		b3.flip(-1)
+		var spr3 = b3.get_node_or_null("Sprite2D")
+		if spr3:
+			spr3.texture = load("res://resources/gfx/black-bird-right.png")
+		add_child(b3)
+		allBirds.append(b3)
+	
+	elif main.level == 16:
+		var b1 = bird.instantiate()
+		b1.position = Vector2(480, 138)
+		add_child(b1)
+		allBirds.append(b1)
+
+		var box_1 = box.instantiate()
+		box_1.position = Vector2(225, 168)
+		add_child(box_1)
+		allBoxes.append(box_1)
+		box_1.bullet_hit.connect(_on_box_bullet_hit)
+
+		var b2 = bird.instantiate()
+		b2.position = Vector2(521, 258)
+		b2.move = true
+		b2.speed = 6
+		b2.flip(-1)
+		var spr2 = b2.get_node_or_null("Sprite2D")
+		if spr2:
+			spr2.texture = load("res://resources/gfx/black-bird-right.png")
+		add_child(b2)
+		allBirds.append(b2)
+
+		var b3 = bird.instantiate()
+		b3.position = Vector2(521, 378)
+		b3.move = true
+		b3.speed = 5
+		b3.flip(-1)
+		var spr3 = b3.get_node_or_null("Sprite2D")
+		if spr3:
+			spr3.texture = load("res://resources/gfx/black-bird-right.png")
+		add_child(b3)
+		allBirds.append(b3)
+
+	else:
+		print("Level not defined: ", main.level)
 	
 	is_spawning = false
 
@@ -314,13 +524,13 @@ func _on_bulletfinder_body_entered(body: Node2D) -> void:
 		_reset_bullet()
 		return
 	
-	if allBirds.size() == 0 and main.level < 10:
+	if allBirds.size() == 0 and main.level < 16:
 		shootMove = false
 		$win.play()
 		main.level += 1
 		call_deferred("check_level_and_birds")
 	
-	elif allBirds.size() == 0 and main.level == 10:
+	elif allBirds.size() == 0 and main.level == 16:
 		shootMove = false
 		$win.play()
 		call_deferred("_go_to_end_scene")
