@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://y0x0sflot3kw"]
+
+[ext_resource type="Texture2D" uid="uid://bdoxhdqfrc53k" path="res://resources/gfx/level_border.png" id="1_uncx5"]
+
+[node name="ScoreBoard" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.9930556, 1)
+texture = ExtResource("1_uncx5")
+centered = false
+
+[node name="TextEdit" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+offset_left = 2.0
+offset_right = 141.0
+offset_bottom = 38.0
+text = "Total Shots = 100"
+horizontal_alignment = 1
+vertical_alignment = 1

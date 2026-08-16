@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cksr1u5wpefo1"]
+[gd_scene load_steps=18 format=3 uid="uid://cksr1u5wpefo1"]
 
 [ext_resource type="Script" uid="uid://dc0gyn5uaoy6u" path="res://script/level.gd" id="1_0ha60"]
 [ext_resource type="PackedScene" uid="uid://rtc8rsuwmn6o" path="res://scene/main-seen/base_scene.tscn" id="1_itxqv"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dyqutr3tohx1u" path="res://resources/left-button.png" id="11_wscrc"]
 [ext_resource type="Texture2D" uid="uid://n0mjthtv14sy" path="res://resources/right-button.png" id="12_mswub"]
 [ext_resource type="Texture2D" uid="uid://c2ccyww7owweg" path="res://resources/shoot-button (1).png" id="13_hybxs"]
+[ext_resource type="PackedScene" uid="uid://y0x0sflot3kw" path="res://scene/main-seen/score_board.tscn" id="13_mswub"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tqoya"]
 size = Vector2(40.5, 455.5)
@@ -87,7 +88,7 @@ position = Vector2(573.5, -19.5)
 shape = SubResource("RectangleShape2D_0ha60")
 
 [node name="bullet-finder-down" type="Area2D" parent="levels"]
-position = Vector2(0, 759)
+position = Vector2(0, 725)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="levels/bullet-finder-down"]
@@ -146,6 +147,9 @@ scale = Vector2(0.2, 0.2)
 theme_type_variation = &"FlatButton"
 theme_override_styles/hover_pressed = SubResource("StyleBoxLine_hybxs")
 icon = ExtResource("13_hybxs")
+
+[node name="ScoreBoard" parent="levels" instance=ExtResource("13_mswub")]
+position = Vector2(914, 12)
 
 [connection signal="body_entered" from="levels/base-scene/piller-detect" to="levels" method="_on_pillerdetect_body_entered"]
 [connection signal="body_entered" from="levels/base-scene/piller-detect2" to="levels" method="_on_pillerdetect_2_body_entered"]

@@ -51,6 +51,9 @@ func _process(_delta: float) -> void:
 		var y_close: bool = bullet.position.y >= shooter.position.y - 40.0
 		if x_close and y_close:
 			_reset_bullet()
+	
+	if  main.level == 19 and allBirds.size() == 3:
+		pass
 
 func _physics_process(delta: float) -> void:
 	if shootMove:
@@ -104,6 +107,7 @@ func _deferred_reload_level() -> void:
 
 	if main.level == 1:
 		var b = bird.instantiate()
+		b.name = "bird level 1"
 		b.position = Vector2(521, 138)
 		add_child(b)
 		allBirds.append(b)
@@ -508,6 +512,95 @@ func _deferred_reload_level() -> void:
 		add_child(b3)
 		allBirds.append(b3)
 	
+	elif main.level == 18:
+		var b1 = bird.instantiate()
+		b1.position = Vector2(480, 138)
+		b1.move = true
+		b1.speed = 6
+		var spr1 = b1.get_node_or_null("Sprite2D")
+		if spr1:
+			spr1.texture = load("res://resources/gfx/black-bird-right.png")
+		add_child(b1)
+		allBirds.append(b1)
+
+		var box_1 = box.instantiate()
+		box_1.position = Vector2(521, 290)
+		add_child(box_1)
+		allBoxes.append(box_1)
+		box_1.bullet_hit.connect(_on_box_bullet_hit)
+
+		var b2 = bird.instantiate()
+		b2.position = Vector2(250, 258)
+		add_child(b2)
+		allBirds.append(b2)
+
+		var b3 = bird.instantiate()
+		b3.position = Vector2(521, 378)
+		b3.move = true
+		b3.speed = 5
+		b3.flip(-1)
+		var spr3 = b3.get_node_or_null("Sprite2D")
+		if spr3:
+			spr3.texture = load("res://resources/gfx/black-bird-right.png")
+		add_child(b3)
+		allBirds.append(b3)
+	
+	elif main.level == 19:
+		var box_1 = box.instantiate()
+		box_1.name = "top-box-1"
+		box_1.position = Vector2(250, 168)
+		add_child(box_1)
+		allBoxes.append(box_1)
+		box_1.bullet_hit.connect(_on_box_bullet_hit)
+
+		var b1 = bird.instantiate()
+		b1.position = Vector2(521, 138)
+		b1.name = "bird-1-center-top"
+		add_child(b1)
+		allBirds.append(b1)
+
+		var box_2 = box.instantiate()
+		box_2.name = "top-box-2"
+		box_2.position = Vector2(876, 168)
+		add_child(box_2)
+		allBoxes.append(box_2)
+		box_2.bullet_hit.connect(_on_box_bullet_hit)
+
+		var b2 = bird.instantiate()
+		b2.name = "bird-2-left-middle"
+		b2.position = Vector2(250, 258)
+		add_child(b2)
+		allBirds.append(b2)
+
+		var b3 = bird.instantiate()
+		b3.name = "bird-3-center-middle"
+		b3.position = Vector2(521, 258)
+		add_child(b3)
+		allBirds.append(b3)
+
+		var b4 = bird.instantiate()
+		b4.name = "bird-4-right-middle"
+		b4.position = Vector2(876, 258)
+		add_child(b4)
+		allBirds.append(b4)
+
+		var b5 = bird.instantiate()
+		b5.name = "bird-5-left-bottom"
+		b5.position = Vector2(250, 378)
+		add_child(b5)
+		allBirds.append(b5)
+
+		var b6 = bird.instantiate()
+		b6.name = "bird-6-center-bottom"
+		b6.position = Vector2(521, 378)
+		add_child(b6)
+		allBirds.append(b6)
+
+		var b7 = bird.instantiate()
+		b7.name = "bird-7-right-bottom"
+		b7.position = Vector2(876, 378)
+		add_child(b7)
+		allBirds.append(b7)
 	is_spawning = false
 
 
