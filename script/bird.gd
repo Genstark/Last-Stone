@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var move = false
 @export var speed = 4
 var direction := 1
+#@onready var bullet = get_node_or_null("../bullets")
 
 func flip(dir: int):
 	direction = dir

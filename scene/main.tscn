@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cksr1u5wpefo1"]
+[gd_scene format=3 uid="uid://cksr1u5wpefo1"]
 
 [ext_resource type="Script" uid="uid://dc0gyn5uaoy6u" path="res://script/level.gd" id="1_0ha60"]
 [ext_resource type="PackedScene" uid="uid://rtc8rsuwmn6o" path="res://scene/main-seen/base_scene.tscn" id="1_itxqv"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dyqutr3tohx1u" path="res://resources/left-button.png" id="11_wscrc"]
 [ext_resource type="Texture2D" uid="uid://n0mjthtv14sy" path="res://resources/right-button.png" id="12_mswub"]
 [ext_resource type="Texture2D" uid="uid://c2ccyww7owweg" path="res://resources/shoot-button (1).png" id="13_hybxs"]
+[ext_resource type="PackedScene" uid="uid://y0x0sflot3kw" path="res://scene/main-seen/score_board.tscn" id="13_mswub"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tqoya"]
 size = Vector2(40.5, 455.5)
@@ -24,80 +25,88 @@ size = Vector2(1167, 39)
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_hybxs"]
 
-[node name="main" type="Node2D"]
+[node name="main" type="Node2D" unique_id=1909922528]
 script = ExtResource("1_p1hux")
 
-[node name="levels" type="Node2D" parent="."]
+[node name="levels" type="Node2D" parent="." unique_id=671441493]
 script = ExtResource("1_0ha60")
 
-[node name="base-scene" parent="levels" instance=ExtResource("1_itxqv")]
+[node name="base-scene" parent="levels" unique_id=1845747276 instance=ExtResource("1_itxqv")]
 
-[node name="wire-1" type="Sprite2D" parent="levels/base-scene"]
+[node name="wire-1" type="Sprite2D" parent="levels/base-scene" unique_id=1908551467]
 modulate = Color(0, 0, 0, 1)
 z_index = -1
-position = Vector2(572.5, 192)
+position = Vector2(572.5, 170)
 scale = Vector2(7.50735, 0.307691)
 texture = ExtResource("2_v0l8b")
 
-[node name="wire-2" type="Sprite2D" parent="levels/base-scene"]
+[node name="wire-2" type="Sprite2D" parent="levels/base-scene" unique_id=1032264115]
 modulate = Color(0, 0, 0, 1)
 self_modulate = Color(0, 0, 0, 1)
 z_index = -1
-position = Vector2(562, 312)
+position = Vector2(562, 290)
 scale = Vector2(7.60294, 0.307691)
 texture = ExtResource("2_v0l8b")
 
-[node name="piller-detect" type="Area2D" parent="levels/base-scene"]
+[node name="wire-3" type="Sprite2D" parent="levels/base-scene" unique_id=596623649]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(562, 410)
+scale = Vector2(7.60294, 0.307691)
+texture = ExtResource("2_v0l8b")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="levels/base-scene/piller-detect"]
+[node name="piller-detect" type="Area2D" parent="levels/base-scene" unique_id=822599648]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levels/base-scene/piller-detect" unique_id=1038563847]
 position = Vector2(65, 232.25)
 shape = SubResource("RectangleShape2D_tqoya")
 
-[node name="piller-detect2" type="Area2D" parent="levels/base-scene"]
+[node name="piller-detect2" type="Area2D" parent="levels/base-scene" unique_id=1553624867]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="levels/base-scene/piller-detect2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levels/base-scene/piller-detect2" unique_id=845501166]
 position = Vector2(1079, 232.25)
 shape = SubResource("RectangleShape2D_tqoya")
 
-[node name="shooter" parent="levels" instance=ExtResource("3_wp4xf")]
+[node name="shooter" parent="levels" unique_id=942511678 instance=ExtResource("3_wp4xf")]
 position = Vector2(590, 614)
 
-[node name="bullets" parent="levels" instance=ExtResource("4_brvut")]
+[node name="bullets" parent="levels" unique_id=99825144 instance=ExtResource("4_brvut")]
 position = Vector2(590, 586)
 
-[node name="bird-finder" type="Area2D" parent="levels/bullets"]
+[node name="bird-finder" type="Area2D" parent="levels/bullets" unique_id=1955861372]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="levels/bullets/bird-finder"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levels/bullets/bird-finder" unique_id=1198171208]
 shape = SubResource("CircleShape2D_hybxs")
 
-[node name="bullet-finder" type="Area2D" parent="levels"]
+[node name="bullet-finder" type="Area2D" parent="levels" unique_id=1046901394]
 position = Vector2(0, -24)
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="levels/bullet-finder"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levels/bullet-finder" unique_id=192478768]
 position = Vector2(573.5, -19.5)
 shape = SubResource("RectangleShape2D_0ha60")
 
-[node name="bullet-finder-down" type="Area2D" parent="levels"]
-position = Vector2(0, 759)
+[node name="bullet-finder-down" type="Area2D" parent="levels" unique_id=110873091]
+position = Vector2(0, 725)
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="levels/bullet-finder-down"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levels/bullet-finder-down" unique_id=1579646091]
 position = Vector2(573.5, -19.5)
 shape = SubResource("RectangleShape2D_0ha60")
 
-[node name="lose-sound" type="AudioStreamPlayer2D" parent="levels"]
+[node name="lose-sound" type="AudioStreamPlayer2D" parent="levels" unique_id=205257940]
 stream = ExtResource("8_of57s")
 volume_db = 12.0
 
-[node name="launch" type="AudioStreamPlayer2D" parent="levels"]
+[node name="launch" type="AudioStreamPlayer2D" parent="levels" unique_id=2119611220]
 stream = ExtResource("9_b5f6u")
 
-[node name="win" type="AudioStreamPlayer2D" parent="levels"]
+[node name="win" type="AudioStreamPlayer2D" parent="levels" unique_id=2093605133]
 stream = ExtResource("10_tqoya")
 volume_db = 12.0
 
-[node name="left-Button" type="Button" parent="levels"]
+[node name="left-Button" type="Button" parent="levels" unique_id=1485498545]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -111,7 +120,7 @@ scale = Vector2(0.7, 0.7)
 theme_type_variation = &"FlatButton"
 icon = ExtResource("11_wscrc")
 
-[node name="right-Button" type="Button" parent="levels"]
+[node name="right-Button" type="Button" parent="levels" unique_id=495852256]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -128,7 +137,7 @@ theme_type_variation = &"FlatButton"
 theme_override_font_sizes/font_size = 58
 icon = ExtResource("12_mswub")
 
-[node name="shoot-Button" type="Button" parent="levels"]
+[node name="shoot-Button" type="Button" parent="levels" unique_id=1225479346]
 z_index = 3
 offset_left = 455.0
 offset_top = 457.0
@@ -138,6 +147,10 @@ scale = Vector2(0.2, 0.2)
 theme_type_variation = &"FlatButton"
 theme_override_styles/hover_pressed = SubResource("StyleBoxLine_hybxs")
 icon = ExtResource("13_hybxs")
+
+[node name="ScoreBoard" parent="levels" unique_id=750482276 instance=ExtResource("13_mswub")]
+visible = false
+position = Vector2(914, 12)
 
 [connection signal="body_entered" from="levels/base-scene/piller-detect" to="levels" method="_on_pillerdetect_body_entered"]
 [connection signal="body_entered" from="levels/base-scene/piller-detect2" to="levels" method="_on_pillerdetect_2_body_entered"]
