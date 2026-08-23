@@ -13,3 +13,4 @@ dist/
 .env
 user_data/
 /android-export/
+ReleaseKey/

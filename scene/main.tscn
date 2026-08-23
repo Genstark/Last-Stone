@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://n0mjthtv14sy" path="res://resources/right-button.png" id="12_mswub"]
 [ext_resource type="Texture2D" uid="uid://c2ccyww7owweg" path="res://resources/shoot-button (1).png" id="13_hybxs"]
 [ext_resource type="PackedScene" uid="uid://y0x0sflot3kw" path="res://scene/main-seen/score_board.tscn" id="13_mswub"]
+[ext_resource type="AudioStream" uid="uid://dlorwvma57wst" path="res://resources/sfx/background/main-background-music.mp3" id="14_hybxs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tqoya"]
 size = Vector2(40.5, 455.5)
@@ -151,6 +152,10 @@ icon = ExtResource("13_hybxs")
 [node name="ScoreBoard" parent="levels" unique_id=750482276 instance=ExtResource("13_mswub")]
 visible = false
 position = Vector2(914, 12)
+
+[node name="backgroung-music" type="AudioStreamPlayer2D" parent="levels" unique_id=935409064]
+stream = ExtResource("14_hybxs")
+autoplay = true
 
 [connection signal="body_entered" from="levels/base-scene/piller-detect" to="levels" method="_on_pillerdetect_body_entered"]
 [connection signal="body_entered" from="levels/base-scene/piller-detect2" to="levels" method="_on_pillerdetect_2_body_entered"]

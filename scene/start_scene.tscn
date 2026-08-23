@@ -1,46 +1,46 @@
-[gd_scene load_steps=8 format=3 uid="uid://cyohe5mb3o17g"]
+[gd_scene format=3 uid="uid://cyohe5mb3o17g"]
 
 [ext_resource type="Texture2D" uid="uid://d3qnkcbmbvjod" path="res://resources/gfx/background.png" id="1_24qbo"]
 [ext_resource type="Script" uid="uid://qbbyc2jqbl3t" path="res://script/start_scene.gd" id="1_i8kgv"]
 [ext_resource type="Texture2D" uid="uid://b5koyrj6m6kkd" path="res://resources/start-background-afternoon.png" id="1_yit26"]
 [ext_resource type="Texture2D" uid="uid://shormuxx5xhi" path="res://resources/Play-Button.png" id="2_yit26"]
 [ext_resource type="Texture2D" uid="uid://dngkw12ymy0q6" path="res://resources/QUit_BUtton.png" id="3_i8kgv"]
-[ext_resource type="AudioStream" uid="uid://b1ymc46t0ugi6" path="res://resources/sfx/launch.wav" id="3_ktkcv"]
+[ext_resource type="AudioStream" uid="uid://yfuxmtmumetk" path="res://resources/sfx/background/Crown_of_the_Fallen_Keep.mp3" id="6_i8kgv"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qnhph"]
 
-[node name="start scene" type="Node2D"]
+[node name="start scene" type="Node2D" unique_id=608541468]
 script = ExtResource("1_i8kgv")
 
-[node name="background" type="Sprite2D" parent="."]
+[node name="background" type="Sprite2D" parent="." unique_id=1114941351]
 position = Vector2(577, 393)
 scale = Vector2(0.775, 0.775)
 texture = ExtResource("1_yit26")
 
-[node name="play" type="Sprite2D" parent="."]
+[node name="play" type="Sprite2D" parent="." unique_id=373422024]
 position = Vector2(576, 365)
 scale = Vector2(0.225, 0.225)
 texture = ExtResource("2_yit26")
 
-[node name="quit" type="Sprite2D" parent="."]
+[node name="quit" type="Sprite2D" parent="." unique_id=1554463453]
 position = Vector2(576, 455.00003)
 scale = Vector2(0.225, 0.225)
 texture = ExtResource("3_i8kgv")
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=918130090]
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground"]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground" unique_id=1996841332]
 scale = Vector2(1.8, 1.3749998)
 texture = ExtResource("1_24qbo")
 centered = false
 
-[node name="start" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_ktkcv")
+[node name="start" type="AudioStreamPlayer2D" parent="." unique_id=1306505270]
+stream = ExtResource("6_i8kgv")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=1722320557]
 wait_time = 3.0
 
-[node name="StartButton" type="Button" parent="."]
+[node name="StartButton" type="Button" parent="." unique_id=326457871]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -67,7 +67,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_qnhph")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_qnhph")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_qnhph")
 
-[node name="QuitButton" type="Button" parent="."]
+[node name="QuitButton" type="Button" parent="." unique_id=131664892]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
