@@ -13,7 +13,9 @@ var background = {
 var current_period: String = ""
 
 func _ready() -> void:
-	$start.play()
+	var background_music: AudioStreamPlayer2D = $start
+	background_music.finished.connect(background_music.play)
+	background_music.play()
 	screen_size = get_viewport().get_visible_rect().size
 	_update_sky()
 
