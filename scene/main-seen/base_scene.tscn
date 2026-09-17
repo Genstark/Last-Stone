@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://rtc8rsuwmn6o"]
+[gd_scene format=3 uid="uid://rtc8rsuwmn6o"]
 
 [ext_resource type="Script" uid="uid://v3fijmf65bfy" path="res://script/base_scene.gd" id="1_smgvn"]
 [ext_resource type="Texture2D" uid="uid://cqm2c3pjfd8u7" path="res://resources/gfx/afternoon-sky.png" id="1_sy46k"]
@@ -8,35 +8,35 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sy46k"]
 size = Vector2(44, 111)
 
-[node name="base-scene" type="Node2D"]
+[node name="base-scene" type="Node2D" unique_id=1594426405]
 script = ExtResource("1_smgvn")
 
-[node name="background" type="ParallaxBackground" parent="."]
+[node name="background" type="ParallaxBackground" parent="." unique_id=1047172366]
 
-[node name="blue-background" type="Sprite2D" parent="background"]
+[node name="blue-background" type="Sprite2D" parent="background" unique_id=2090570406]
 scale = Vector2(0.748698, 0.7)
 texture = ExtResource("1_sy46k")
 centered = false
 
-[node name="pillers" type="StaticBody2D" parent="."]
+[node name="pillers" type="StaticBody2D" parent="." unique_id=1888372401]
 
-[node name="Sprite2D" type="Sprite2D" parent="pillers"]
+[node name="Sprite2D" type="Sprite2D" parent="pillers" unique_id=1059932227]
 position = Vector2(-77.4728, -66)
 scale = Vector2(2.12822, 2.04902)
 texture = ExtResource("2_sy46k")
 centered = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="pillers"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pillers" unique_id=1835888037]
 position = Vector2(56, 591.5)
 shape = SubResource("RectangleShape2D_sy46k")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="pillers"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="pillers" unique_id=1220106096]
 position = Vector2(1088, 591)
 shape = SubResource("RectangleShape2D_sy46k")
 
-[node name="grass" type="StaticBody2D" parent="."]
+[node name="grass" type="StaticBody2D" parent="." unique_id=1379789104]
 
-[node name="Sprite2D" type="Sprite2D" parent="grass"]
+[node name="Sprite2D" type="Sprite2D" parent="grass" unique_id=588404337]
 z_index = -1
 position = Vector2(576, 410)
 scale = Vector2(1.89216, 1.192)

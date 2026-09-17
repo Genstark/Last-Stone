@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://buxddla7knva7"]
+
+[ext_resource type="Texture2D" uid="uid://c3rkxoxxvednk" path="res://resources/gfx/spark_back.png" id="1_dexwr"]
+[ext_resource type="Texture2D" uid="uid://bnwgfbg77d2ol" path="res://resources/gfx/spark_front.png" id="2_3c7he"]
+
+[node name="Spark" type="CharacterBody2D" unique_id=1888133368]
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=508674992]
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("1_dexwr")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1294286766]
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("2_3c7he")

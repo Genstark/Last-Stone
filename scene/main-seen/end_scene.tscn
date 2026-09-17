@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://rtc8rsuwmn6o" path="res://scene/main-seen/base_scene.tscn" id="1_mv8eb"]
 [ext_resource type="Script" uid="uid://bgkh08sdfeloq" path="res://script/end_scene.gd" id="1_tw4p0"]
 [ext_resource type="AudioStream" uid="uid://dxat2xktutx8r" path="res://resources/sfx/background/A_Kingdom_Awakens.mp3" id="3_e73p8"]
-[ext_resource type="Texture2D" uid="uid://drp037fh4h2up" path="res://resources/main_menu_button.png" id="3_mx7mu"]
+[ext_resource type="Texture2D" uid="uid://ykfvu3yvgfh0" path="res://resources/main_menu_button.png" id="3_mx7mu"]
 
 [node name="end-scene" type="Node2D" unique_id=1790504444]
 script = ExtResource("1_tw4p0")

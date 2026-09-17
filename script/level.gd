@@ -233,6 +233,11 @@ func _deferred_reload_level() -> void:
 		_spawn_bird(Vector2(521, 378), false, 0, 0, "bird-6-center-bottom")
 		_spawn_bird(Vector2(876, 378), false, 0, 0, "bird-7-right-bottom")
 	
+	elif main.level == 21:
+		$"base-scene/wire-2".visible = true
+		$"base-scene/wire-3".visible = false
+		
+		_spawn_bird(Vector2(521, 138), false, 0, 0, "bird-top-center")
 	is_spawning = false
 
 

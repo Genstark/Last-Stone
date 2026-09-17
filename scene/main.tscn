@@ -9,9 +9,9 @@
 [ext_resource type="AudioStream" uid="uid://yr4dmjtw6pa0" path="res://resources/sfx/lose.wav" id="8_of57s"]
 [ext_resource type="AudioStream" uid="uid://b1ymc46t0ugi6" path="res://resources/sfx/launch.wav" id="9_b5f6u"]
 [ext_resource type="AudioStream" uid="uid://c0enp82ltgmhq" path="res://resources/sfx/win.wav" id="10_tqoya"]
-[ext_resource type="Texture2D" uid="uid://dyqutr3tohx1u" path="res://resources/left-button.png" id="11_wscrc"]
-[ext_resource type="Texture2D" uid="uid://n0mjthtv14sy" path="res://resources/right-button.png" id="12_mswub"]
-[ext_resource type="Texture2D" uid="uid://c2ccyww7owweg" path="res://resources/shoot-button (1).png" id="13_hybxs"]
+[ext_resource type="Texture2D" uid="uid://c0ckh04ckabsi" path="res://resources/left-button.png" id="11_wscrc"]
+[ext_resource type="Texture2D" uid="uid://qmcq4jx6fady" path="res://resources/right-button.png" id="12_mswub"]
+[ext_resource type="Texture2D" uid="uid://bw0bsh3wh2bk0" path="res://resources/shoot-button (1).png" id="13_hybxs"]
 [ext_resource type="PackedScene" uid="uid://y0x0sflot3kw" path="res://scene/main-seen/score_board.tscn" id="13_mswub"]
 [ext_resource type="AudioStream" uid="uid://dlorwvma57wst" path="res://resources/sfx/background/main-background-music.mp3" id="14_hybxs"]
 
@@ -46,7 +46,7 @@ modulate = Color(0, 0, 0, 1)
 self_modulate = Color(0, 0, 0, 1)
 z_index = -1
 position = Vector2(562, 290)
-scale = Vector2(7.60294, 0.307691)
+scale = Vector2(7.507, 0.305)
 texture = ExtResource("2_v0l8b")
 
 [node name="wire-3" type="Sprite2D" parent="levels/base-scene" unique_id=596623649]
